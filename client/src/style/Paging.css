@@ -1,0 +1,20 @@
+.paging-container {
+    margin-top: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paging-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.paging {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-inline-start: 0;
+}

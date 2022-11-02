@@ -1,0 +1,17 @@
+.country-card {
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.flag-img {
+    max-width: 3rem;
+    max-height: 2rem;
+}
+
+.link-see-more {
+    color: hsl(300, 92%, 14%);
+    text-decoration: none;
+}
