@@ -56,6 +56,10 @@
     -webkit-backdrop-filter: blur(5.4px);
     border-radius: 0.5em;
     margin-top: 3em;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
 }
 
 .create-link:hover,

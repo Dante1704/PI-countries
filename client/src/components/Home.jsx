@@ -5,6 +5,7 @@ import { getAllCountries, getAllActivities } from "../redux/actions";
 
 import Country from "./CountryCard";
 import Paging from "./Paging";
+import Navigation from "./Navigation"
 
 import "../style/Home.css"
 
@@ -45,32 +46,35 @@ const Home = () => {
 
     return (
 
-        <div className="home-countries-container">
-            {!loading && <p>Loading</p>}
-            <div className="countries-container">
+        <>
+            <Navigation setCurrentPage={setCurrentPage}/>
+            <div className="home-countries-container">
+                {!loading && <p>Loading</p>}
+                <div className="countries-container">
 
-                {
-                    notFoundMessage ? <p className="not-found-msg">{notFoundMessage}</p> :
-                        currentCountries[currentPage]?.map(
-                            (country, index) => {
-                                return (
-                                    <Country
-                                        flags={country.flags}
-                                        country={country.name}
-                                        continents={country.continents}
-                                        id={country.id}
-                                        key={index}
-                                    />)
-                            }
-                        )
-                }
+                    {
+                        notFoundMessage ? <p className="not-found-msg">{notFoundMessage}</p> :
+                            currentCountries[currentPage]?.map(
+                                (country, index) => {
+                                    return (
+                                        <Country
+                                            flags={country.flags}
+                                            country={country.name}
+                                            continents={country.continents}
+                                            id={country.id}
+                                            key={index}
+                                        />)
+                                }
+                            )
+                    }
+                </div>
+                <div className="paging-container">
+
+                    <Paging allCountries={currentCountries} paginate={paginate} currentPage={currentPage} />
+
+                </div>
             </div>
-            <div className="paging-container">
-
-                <Paging allCountries={currentCountries} paginate={paginate} currentPage={currentPage} />
-
-            </div>
-        </div>
+        </>
     );
 }
 

@@ -2,10 +2,10 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountryByPopulation, cleanMessages, getAllCountries, getCountriesByName, getCountriesByContinent, getCountriesByActivity, getCountriesByOrder, cleanCountriesFiltered } from "../redux/actions";
+import {cleanMessages, getAllCountries, getCountriesByName, getCountriesByContinent, getCountriesByActivity, getCountriesByOrder, cleanCountriesFiltered } from "../redux/actions";
 import '../style/Navigation.css';
 
-const Nav = () => {
+const Nav = ({setCurrentPage} ) => {
 
 
     const [name, setName] = useState("");
@@ -35,6 +35,7 @@ const Nav = () => {
 
     const changeHandlerForContinent = (event) => {
         const continentName = event.target.value;
+        setCurrentPage(0);
         setFilter({ ...filter, continent: continentName })
         dispatch(getCountriesByContinent({ continent: continentName }))
     };
@@ -44,11 +45,13 @@ const Nav = () => {
 
         if (!filter.activity && !filter.continent) {
             dispatch(cleanCountriesFiltered());
+            setCurrentPage(0);
             setFilter({ ...filter, activity: activityName });
             dispatch(getCountriesByActivity({ activity: activityName }))
         }
         else {
             dispatch(cleanCountriesFiltered());
+            setCurrentPage(0);
             dispatch(getCountriesByContinent({ continent: filter.continent }));
             dispatch(getCountriesByActivity({ activity: activityName }));
             setFilter({ ...filter, activity: activityName });
@@ -56,17 +59,16 @@ const Nav = () => {
     };
 
     const clickHandlerForOrder = (event) => {
-        const order = event.target.value; //"Population = 2072"
-        if (order === "2072") {
-            dispatch(getCountryByPopulation(order));
-        } else {
-            setFilter({ ...filter, sorting: order })
-            dispatch(getCountriesByOrder({ order: order }))
-        }
+        const order = event.target.value; 
+        setCurrentPage(0);
+        setFilter({ ...filter, sorting: order })
+        dispatch(getCountriesByOrder({ order: order }))
+        
     }
 
     const clickCleanHandler = (event) => {
         dispatch(cleanCountriesFiltered());
+        setCurrentPage(0);
         setFilter({
             continent: "",
             activity: "",
@@ -139,7 +141,6 @@ const Nav = () => {
                             <input type="button" value="Z To A" className="buttons" onClick={clickHandlerForOrder} />
                             <input type="button" value="By Population Asc" className="buttons" onClick={clickHandlerForOrder} />
                             <input type="button" value="By Population Des" className="buttons" onClick={clickHandlerForOrder} />
-                            <input type="button" value="2072" className="buttons" onClick={clickHandlerForOrder} />
                         </div>
                     </fieldset>
                     <button type="reset" className="btn-clean buttons" onClick={clickCleanHandler}>Clean Filters</button>

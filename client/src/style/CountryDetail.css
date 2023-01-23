@@ -17,7 +17,6 @@
 }
 
 .flag {
-    min-width: 750px;
     max-height: 450px;
     box-shadow: 20px 20px 40px -6px rgb(0 0 0 / 20%);
     backdrop-filter: blur(5.4px);

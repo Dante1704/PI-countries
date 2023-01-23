@@ -23,15 +23,10 @@
 
 
 
-.link-get-into {
-    color: aliceblue;
+.link-get-into {    
     font-weight: bolder;
-    font-size: 4rem;
     text-decoration: none;
-    filter: blur(3px);
-}
-
-.link-get-into:hover {
+    font-size: 4rem;
     color: black;
     filter: blur(0px);
     background-color: rgba(0, 0, 0, 0.3);
@@ -42,5 +37,8 @@
     backdrop-filter: blur(5.4px);
     -webkit-backdrop-filter: blur(5.4px);
     border-radius: 10px;
+}
 
+.link-get-into:hover {
+    color: aliceblue;
 }
