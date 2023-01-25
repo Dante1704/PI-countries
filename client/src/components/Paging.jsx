@@ -2,7 +2,7 @@ import React from "react";
 import "../style/Paging.css";
 
 const Paging = ({ allCountries, paginate, currentPage }) => {
-
+    
     const pageNumbers = [];
 
     //pusheo la cantidad de paginas que voy a ncesitar tener 
@@ -19,7 +19,7 @@ const Paging = ({ allCountries, paginate, currentPage }) => {
                     currentPage > 0 ? paginate((currentPage - 1)) : paginate(currentPage)
                 }}>prev</button></li>
                 {pageNumbers && pageNumbers.map(numPage => {
-                    return <li key={numPage}><button className="buttons" onClick={() => paginate(numPage)}>{numPage + 1}</button></li>
+                    return <li key={numPage}><button className={currentPage === numPage ? "buttons active" : "buttons"} onClick={() => paginate(numPage)}>{numPage + 1}</button></li>
                 })}
                 <li><button className="buttons" onClick={() => {
                     currentPage < allCountries.length - 1 ? paginate((currentPage + 1)) : paginate(currentPage)

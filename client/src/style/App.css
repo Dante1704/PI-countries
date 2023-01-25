@@ -17,7 +17,7 @@
   border-radius: 0.5em;
 }
 
-.buttons:hover {
+.buttons:hover, .active {
   color: darkslateblue;
   background-color: aliceblue;
 }
