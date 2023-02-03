@@ -12,7 +12,7 @@
     display: grid;
     align-items: center;
     justify-content: center;
-    grid-template-columns: repeat(5, 278px);
+    grid-template-columns: repeat(5, minmax(100px, 278px));
     grid-template-rows: repeat(2, 200px);
     grid-row-gap: 3em;
     margin-top: 3em;

@@ -21,11 +21,24 @@
 }
 
 .filters {
+    max-width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
     row-gap: 0.5em;
+    background: rgb(0 0 0 / 40%);
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border-width: 5px;
+    border-style: groove;
+    border-color: rgb(192, 192, 192);
+    border-image: initial;
 }
 
 .continent-options {
